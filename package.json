@@ -1,0 +1,28 @@
+{
+  "name": "fred-builder",
+  "version": "1.0.0",
+  "description": "CLI interativo para criar projetos Expo personalizados",
+  "main": "dist/index.js",
+  "bin": {
+    "fred-builder": "./bin/fred-builder.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "keywords": ["expo", "react-native", "cli", "template", "scaffold"],
+  "author": "Luiz Gabriel",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
