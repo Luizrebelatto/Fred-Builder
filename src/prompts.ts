@@ -20,9 +20,24 @@ export async function askProjectConfig(): Promise<ProjectConfig> {
       message: "🧭 Navegação:",
       choices: [
         { name: "Expo Router (file-based routing)", value: "expo-router" },
-        { name: "React Navigation (stack/tab/drawer)", value: "react-navigation" },
+        { name: "React Navigation", value: "react-navigation" },
         { name: "Nenhuma", value: "none" },
       ],
+    },
+    {
+      type: "checkbox",
+      name: "navigationTypes",
+      message: "🧭 Tipos de navegação (espaço para selecionar):",
+      when: (answers: any) => answers.navigation === "react-navigation",
+      choices: [
+        { name: "Stack (navegação em pilha)", value: "stack", checked: true },
+        { name: "Bottom Tabs (abas inferiores)", value: "tabs" },
+        { name: "Drawer (menu lateral)", value: "drawer" },
+      ],
+      validate: (input: string[]) => {
+        if (input.length === 0) return "Selecione pelo menos um tipo de navegação";
+        return true;
+      },
     },
     {
       type: "list",
@@ -81,6 +96,10 @@ export async function askProjectConfig(): Promise<ProjectConfig> {
       ],
     },
   ]);
+
+  if (!answers.navigationTypes) {
+    answers.navigationTypes = [];
+  }
 
   return answers as ProjectConfig;
 }

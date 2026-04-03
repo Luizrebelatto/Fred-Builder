@@ -10,10 +10,22 @@ export function resolveDependencies(config: ProjectConfig): DependencyInfo {
   } else if (config.navigation === "react-navigation") {
     packages.push(
       "@react-navigation/native",
-      "@react-navigation/native-stack",
       "react-native-screens",
       "react-native-safe-area-context"
     );
+    if (config.navigationTypes.includes("stack")) {
+      packages.push("@react-navigation/native-stack");
+    }
+    if (config.navigationTypes.includes("tabs")) {
+      packages.push("@react-navigation/bottom-tabs");
+    }
+    if (config.navigationTypes.includes("drawer")) {
+      packages.push(
+        "@react-navigation/drawer",
+        "react-native-gesture-handler",
+        "react-native-reanimated"
+      );
+    }
   }
 
   // HTTP Client

@@ -6,6 +6,7 @@ import {
   reactNavigationAppTemplate,
   homeScreenTemplate,
 } from "./templates/react-navigation";
+
 import {
   expoRouterLayoutTemplate,
   expoRouterIndexTemplate,
@@ -42,7 +43,7 @@ export function scaffoldProject(projectPath: string, config: ProjectConfig) {
 
   // Navigation
   if (config.navigation === "react-navigation") {
-    writeFile(path.join(projectPath, "App.tsx"), reactNavigationAppTemplate);
+    writeFile(path.join(projectPath, "App.tsx"), reactNavigationAppTemplate(config.navigationTypes));
     writeFile(
       path.join(srcPath, "screens", "HomeScreen.tsx"),
       homeScreenTemplate
