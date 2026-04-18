@@ -2,6 +2,7 @@
 
 import chalk from "chalk";
 import { Command } from "commander";
+import fs from "fs";
 import path from "path";
 import { createContext } from "./core/context";
 import { createLogger } from "./core/logger";
@@ -25,16 +26,10 @@ function showBanner() {
 /_/   /_/   \\___/\\__,_/ /_____/\\__,_/_/_/\\__,_/\\___/_/
 `;
 
-  const dog = `
-        / \\__
-       (    @\\___
-       /         O
-      /   (_____/
-     /_____/   U
-  `;
+  const dog = fs.readFileSync(path.join(__dirname, "..", "ascii-art.txt"), "utf8");
 
   console.log(chalk.bold.cyan(banner));
-  console.log(chalk.yellow(dog));
+  console.log(chalk.blue(dog));
   console.log(chalk.gray("   🔨 Create your custom React Native project in seconds!"));
   console.log("");
 }

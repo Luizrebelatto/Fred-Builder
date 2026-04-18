@@ -5,6 +5,7 @@ import path from "path";
 import type { GenerationContext } from "./context";
 import type { PluginRegistry } from "./plugin-registry";
 import { aggregateDependencies, installDependencies } from "./installer";
+import { playDogAnimation } from "./dog-animation";
 
 export async function run(registry: PluginRegistry, ctx: GenerationContext) {
   try {
@@ -34,6 +35,7 @@ export async function run(registry: PluginRegistry, ctx: GenerationContext) {
     await finalize(ctx, ordered);
 
     ctx.logger.success("✅ Project created successfully!");
+    await playDogAnimation();
     printNextSteps(ctx, ordered);
   } catch (error) {
     ctx.logger.error(`${(error as Error).message}`);
