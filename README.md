@@ -1,5 +1,6 @@
-# FredBuilder 🔨
 
+# FredBuilder 🔨
+<img width="565" height="685" alt="Screenshot 2026-04-19 at 15 59 35" src="https://github.com/user-attachments/assets/f1aa3db0-9144-45e1-9e4c-a2647ed5b313" />
 An interactive CLI tool for scaffolding custom Expo/React Native projects with pre-configured plugins for navigation, state management, styling, and more.
 
 ## What is FredBuilder?
